@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+ <style>
+html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+	
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E8ECEF;
+}
+
+
+    /* Centering the iframe and making it take up the available space */
+iframe {
+      width: 100%;
+      flex-grow: 1; /* Allow iframe to grow and take up space */
+      border: none;
+    }
+.copyright {
+   /* margin-top: 5px; /* Add some space between social icons and copyright */
+    font-size: 12px; /* Font size for copyright text */
+    color: #455A64; /* Copyright text color */
+}
+
+    /* Footer area to hold the button and copyright */
+footer {
+    margin-top: auto; /* Pushes footer to the bottom */
+    background-color: #E8ECEF; /* Match background color */
+    padding: 5px; /* Add padding */
+    color: #455A64; /* Change text color for visibility */
+    text-align: center;
+}
+
+</style>
+
+	<!-- Facebook Meta Tags -->
+	<meta property="og:url" content="https://portfolio.iamfyrus.com/outing">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Fyrus Photography">
+	<meta property="og:description" content="Outing Gallery">
+<!--	<meta property="og:image" content="https://portfolio.iamfyrus.com/media/portfolio-banner.jpg"> -->
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/favicon/site.webmanifest">
+	<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/favicon/favicon.ico">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+	<meta name="theme-color" content="#E8ECEF">
+
+
+  <title>Portfolio</title>
+
+  <!-- meta tags for responsive web on mobile/desktop -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+</head>
+<body>
+	
+  <iframe 
+    src="https://script.google.com/macros/s/AKfycbwWCL_SW8rMA_SH4IVeLxpoDA5DtqbneqejbSeif9uo8Tf_a6_AcEXP9LLRyhuKNAED/exec"
+    allow="camera">
+  </iframe>
+
+    <!-- Footer area to center the home button and copyright -->
+  <footer>
+    <div class="copyright">
+      &copy; <span id="year"></span> Fyrus Photography. All rights reserved.
+    </div>
+  </footer>
+ 
+
+    <script>	    
+	    // Get the current year from the device and update the copyright span
+		document.getElementById("year").textContent = new Date().getFullYear();
+	</script>
+  
+</body>
+</html>

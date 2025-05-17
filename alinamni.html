@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+ <style>
+html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+	
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E8ECEF;
+}
+
+
+    /* Centering the iframe and making it take up the available space */
+iframe {
+      width: 100%;
+      flex-grow: 1; /* Allow iframe to grow and take up space */
+      border: none;
+    }
+.copyright {
+   /* margin-top: 5px; /* Add some space between social icons and copyright */
+    font-size: 12px; /* Font size for copyright text */
+    color: #ffffff; /* Copyright text color */
+}
+
+    /* Footer area to hold the button and copyright */
+footer {
+    margin-top: auto; /* Pushes footer to the bottom */
+    background-color: #121212; /* Match background color */
+    padding: 5px; /* Add padding */
+    color: #455A64; /* Change text color for visibility */
+    text-align: center;
+}
+
+</style>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/photo/asset/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/photo/asset/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/photo/asset/favicon-16x16.png">
+	<link rel="manifest" href="/photo/asset/site.webmanifest">
+	<link rel="mask-icon" href="/photo/asset/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/photo/asset/favicon.ico">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-config" content="/photo/asset/browserconfig.xml">
+	<meta name="theme-color" content="#E8ECEF">
+
+
+  <title>Portfolio</title>
+
+  <!-- meta tags for responsive web on mobile/desktop -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+</head>
+<body>
+	
+  <iframe 
+    src="https://script.google.com/macros/s/AKfycbyuyTYeX25w7vhLqA_WQiYLpaqFmwdn8-RKgQ600pg7lSconmf6xifjGR_1MJP_YNBF/exec"
+    allow="camera">
+  </iframe>
+
+    <!-- Footer area to center the home button and copyright -->
+  <footer>
+    <div class="copyright">
+      &copy; <span id="year"></span> Fyrus Photography. All rights reserved.
+    </div>
+  </footer>
+ 
+
+    <script>	    
+	    // Get the current year from the device and update the copyright span
+		document.getElementById("year").textContent = new Date().getFullYear();
+	</script>
+  
+</body>
+</html>

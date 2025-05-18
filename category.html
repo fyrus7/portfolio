@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photographer Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://portfolio.iamfyrus.com/media/fujixt3.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      position: relative;
+      z-index: 0;
+    }
+
+    .bg-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 2rem;
+      font-weight: bold;
+      background: rgba(30, 30, 30, 0.85);
+      border-bottom: 1px solid #444;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+      padding: 20px;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .grid-category {
+      grid-column: 1 / -1;
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 30px 10px 10px;
+      color: #fff;
+      border-bottom: 1px solid #444;
+    }
+
+    .card {
+      background-color: rgba(30, 30, 30, 0.9);
+      border-radius: 5px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid #333;
+      transform: translateY(30px);
+      opacity: 0;
+      animation: slideUpFade 0.6s ease forwards;
+    }
+
+    .card:hover {
+      transform: translateY(0) scale(1.03);
+    }
+
+    @keyframes slideUpFade {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-title {
+      padding: 10px;
+      font-size: 1rem;
+      text-align: center;
+      color: #ccc;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        font-size: 1.5rem;
+        padding: 20px 10px;
+      }
+
+      .card img {
+        height: 220px;
+      }
+
+      .card-title {
+        font-size: 0.85rem;
+        padding: 6px 8px;
+      }
+    }
+
+    footer {
+      background-color: #121212;
+      padding: 10px 0 15px;
+      color: #455A64;
+      text-align: center;
+    }
+
+    .copyright {
+      font-size: 12px;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-overlay"></div>
+
+  <header>📸 Photographer Portfolio</header>
+
+  <main>
+    <div class="grid" id="gallery-grid"></div>
+  </main>
+
+  <script>
+    const galleries = [
+      {
+        category: "Portraits",
+        items: [
+          {
+            title: "Durra",
+            url: "https://portfolio.iamfyrus.com/durrasalleh",
+            thumb: "https://drive.google.com/thumbnail?id=1vgd7aF63CWSFI6NcF19y5iqbXcjPMDBv&sz=w1500"
+          },
+          {
+            title: "Alia",
+            url: "https://portfolio.iamfyrus.com/alia",
+            thumb: "https://drive.google.com/thumbnail?id=1LPeu03kr24DNiTrvIFiB8o8O1_BS4c3k&sz=w1500"
+          },
+          {
+            title: "Syafika",
+            url: "https://portfolio.iamfyrus.com/syafika",
+            thumb: "https://drive.google.com/thumbnail?id=1zbRd8aoqyRqMCNviHVyc6Zyb29RhEDYq&sz=w1500"
+          },
+          {
+            title: "Alin & Amni",
+            url: "https://portfolio.iamfyrus.com/alinamni",
+            thumb: "https://drive.google.com/thumbnail?id=1pkI5wy8w393NostsNVHeIg0Ii-mToEBB&sz=w1500"
+          }
+        ]
+      },
+      {
+        category: "Weddings",
+        items: [
+          {
+            title: "Emma",
+            url: "https://portfolio.iamfyrus.com/emma",
+            thumb: "https://drive.google.com/thumbnail?id=1mdKCHAriDy2Qc26nHJwxxXa-QHm6qD0u&sz=w1500"
+          },
+          {
+            title: "Tasik Cempaka Outing",
+            url: "https://portfolio.iamfyrus.com/outing",
+            thumb: "https://drive.google.com/thumbnail?id=1VpoNmTVmgrCKdm6V1Zkvql8IKYyoxZH9&sz=w1500"
+          }
+        ]
+      }
+    ];
+
+    const container = document.getElementById('gallery-grid');
+
+    function createCards() {
+      container.innerHTML = '';
+      let delayCounter = 0;
+
+      galleries.forEach(group => {
+        const heading = document.createElement('div');
+        heading.className = 'grid-category';
+        heading.textContent = group.category;
+        container.appendChild(heading);
+
+        group.items.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.style.animationDelay = `${delayCounter * 0.1}s`;
+          delayCounter++;
+          card.onclick = () => window.location.href = item.url;
+
+          card.innerHTML = `
+            <img src="${item.thumb}" alt="${item.title}" />
+            <div class="card-title">${item.title}</div>
+          `;
+          container.appendChild(card);
+        });
+      });
+    }
+
+    function updateGridCols() {
+      const width = window.innerWidth;
+      let cols = 5;
+
+      if (width < 850) {
+        cols = 2;
+      } else if (width < 1050) {
+        cols = 3;
+      } else if (width < 1550) {
+        cols = 4;
+      }
+
+      container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    }
+
+    window.addEventListener('resize', updateGridCols);
+    window.addEventListener('DOMContentLoaded', () => {
+      createCards();
+      updateGridCols();
+      document.getElementById("year").textContent = new Date().getFullYear();
+    });
+  </script>
+
+  <footer>
+    <div style="text-align: center; margin-top: 10px;">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://portfolio.iamfyrus.com" target="_blank" style="margin: 0 15px; text-decoration: none;">
+        <i class="bi bi-facebook" style="font-size: 25px; color: #3b5998;"></i>
+      </a>
+      <a href="https://www.instagram.com/sharer.php?u=https://portfolio.iamfyrus.com" target="_blank" style="margin: 0 15px; text-decoration: none;">
+        <i class="bi bi-instagram" style="font-size: 25px; color: #E1306C;"></i>
+      </a>
+      <a href="https://telegram.me/share/url?url=https://portfolio.iamfyrus.com" target="_blank" style="margin: 0 15px; text-decoration: none;">
+        <i class="bi bi-telegram" style="font-size: 25px; color: #24A1DE;"></i>
+      </a>
+      <a href="https://x.com/intent/tweet?url=https://portfolio.iamfyrus.com&text=Check This Photographer Portfolio" target="_blank" style="margin: 0 15px; text-decoration: none;">
+        <i class="bi bi-twitter-x" style="font-size: 25px; color: #FFFFFF;"></i>
+      </a>
+      <a href="https://wa.me/?text=Check%20out%20this%20photographer%20portfolio:%20https://portfolio.iamfyrus.com" target="_blank" style="margin: 0 15px;">
+        <i class="bi bi-whatsapp" style="font-size: 25px; color: #25D366;"></i>
+      </a>
+    </div>
+    <div style="margin-top: 10px;"></div>
+    <div class="copyright">
+      &copy; <span id="year"></span> Fyrus Photography. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

@@ -12,8 +12,19 @@
       display: flex;
       flex-direction: column;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #121212;
+      background: url('https://portfolio.iamfyrus.com/media/fujixt3.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
+      position: relative;
+      z-index: 0;
+    }
+
+    .bg-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
     }
 
     header {
@@ -21,7 +32,7 @@
       padding: 30px 10px;
       font-size: 2rem;
       font-weight: bold;
-      background: #1e1e1e;
+      background: rgba(30, 30, 30, 0.85);
       border-bottom: 1px solid #444;
     }
 
@@ -37,7 +48,7 @@
     }
 
     .card {
-      background-color: #1e1e1e;
+      background-color: rgba(30, 30, 30, 0.9);
       border-radius: 5px;
       overflow: hidden;
       cursor: pointer;
@@ -92,7 +103,7 @@
     }
 
     footer {
-      background-color: #121212;
+      background-color: rgba(18, 18, 18, 0.9);
       padding: 20px;
       color: #455A64;
       text-align: center;
@@ -105,6 +116,7 @@
   </style>
 </head>
 <body>
+  <div class="bg-overlay"></div>
 
   <header>📸 Photographer Portfolio</header>
 

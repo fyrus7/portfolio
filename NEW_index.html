@@ -58,7 +58,7 @@
 
   .grid {
     display: grid;
-    gap: 5px;
+    gap: 20px; /* 5px */
     padding: 20px 10px;
     grid-template-columns: repeat(5, 1fr);
   }
@@ -144,16 +144,16 @@
 
     .grid-category {
       font-size: 1.2rem; /* 0.9rem; */
-      padding: 20px 10px 10px;
+      padding: 50px 10px 10px; /* 20px 10px 10px; */
       /* removed text-align: center */
     }
 
     .card img {
-      height: 220px;
+      height: 400px; /* 220px */
     }
 
     .card-title {
-      font-size: 0.7rem;
+      font-size: 1.0rem; /* 0.7rem; */
       padding: 6px 6px;
       white-space: normal;
       text-overflow: unset;
@@ -294,9 +294,9 @@
       let cols = 5;
 
       if (width < 850) {
-        cols = 2;
+        cols = 1;
       } else if (width < 1050) {
-        cols = 3;
+        cols = 2;
       } else if (width < 1550) {
         cols = 4;
       }

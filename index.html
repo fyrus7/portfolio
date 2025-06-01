@@ -159,6 +159,126 @@
       text-overflow: unset;
     }
   }
+  
+.about-section {
+  padding: 40px 20px;
+  background-color: transparent;
+  color: #fff;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 30px;
+  flex-wrap: wrap; /* wrap to stack image/text on small screens */
+}
+
+.about-image {
+  width: 270px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 2px solid #444;
+}
+
+.about-text {
+  flex: 1 1 300px;
+  max-width: 600px;
+  margin-top: -10px; /* naikkan keseluruhan text sedikit */
+}
+
+.about-text h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #f0f0f0;
+}
+
+.about-text p {
+  font-size: 0.8rem;
+  line-height: 1.2;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.gear-title {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.gear-logos {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+.gear-logos img {
+  height: 40px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  transition: transform 0.2s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-image {
+    width: 200px; /* kecilkan gambar */
+  }
+
+  .about-text {
+    max-width: 80%;
+    margin-top: -5px; /* naikkan sikit lagi untuk screen kecil */
+  }
+
+  .about-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .about-text p {
+    font-size: 0.8rem;
+  }
+
+  .gear-logos {
+    justify-content: center;
+  }
+
+  .gear-logos img {
+    height: 35px; /* kecilkan logo brand */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 30px 16px;
+  }
+
+  .about-image {
+    width: 160px; /* lagi kecil */
+  }
+
+  .about-text {
+    max-width: 90%;
+    margin-top: -5px;
+  }
+
+  .gear-logos img {
+    height: 30px;
+  }
+}
+
+
+
+
 </style>
 
 </head>
@@ -331,6 +451,24 @@
       document.getElementById("year").textContent = new Date().getFullYear();
     });
   </script>
+  
+  <div class="grid-category"></div>
+  
+  <section class="about-section">
+  <div class="about-container">
+    <img src="https://iamfyrus.com/media/photog.jpg" alt="Photographer" class="about-image" />
+    <div class="about-text">
+      <h2>the Photographer</h2>
+      <p>Hi, I'm Fyrus – a passionate wedding and portrait photographer dedicated to capturing your timeless moments. I believe in authentic emotion and storytelling through every shot.</p>
+      <p>Available for bookings around Klang Valley (and some Outstation area's). Let's create something beautiful.</p>
+	  <br>
+	  <p class="gear-title"><b>GEAR</b></p>
+	  <div class="gear-logos">
+	  <img src="https://iamfyrus.com/media/brands.png" alt="Brands" />
+	  </div>
+    </div>
+  </div>
+</section>
 
   <footer>
     <div style="text-align: center; margin-top: 10px;">

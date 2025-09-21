@@ -49,6 +49,7 @@
     padding: 30px 10px;
     font-size: 2rem;
     background: rgba(30, 30, 30, 0.85);
+  /*  border-bottom: 1px solid #444; */
   }
 
   main {
@@ -65,6 +66,7 @@
   .grid-category {
     grid-column: 1 / -1;
     font-size: 1.5rem;
+   /* font-weight: bold; */
     padding: 30px 10px 10px;
     color: #fff;
     border-bottom: 1px solid #444;
@@ -109,22 +111,6 @@
     text-overflow: ellipsis;
   }
 
-  .load-more {
-    grid-column: 1 / -1;
-    margin: 15px auto;
-    padding: 8px 16px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    background: #222;
-    color: #fff;
-    border: 1px solid #555;
-    border-radius: 3px;
-  }
-
-  .load-more:hover {
-    background: #444;
-  }
-
   footer {
     background-color: #121212;
     padding: 10px 0 15px;
@@ -148,7 +134,7 @@
   /* Responsive adjustments for smaller screens */
   @media (max-width: 768px) {
     header {
-      font-size: 1.5rem;
+      font-size: 1.5rem; /* 1rem; */
       padding: 20px 10px;
     }
 
@@ -157,8 +143,9 @@
     }
 
     .grid-category {
-      font-size: 1.2rem;
+      font-size: 1.2rem; /* 0.9rem; */
       padding: 20px 10px 10px;
+      /* removed text-align: center */
     }
 
     .card img {
@@ -186,7 +173,7 @@
   max-width: 1000px;
   margin: 0 auto;
   gap: 30px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* wrap to stack image/text on small screens */
 }
 
 .about-image {
@@ -200,7 +187,7 @@
 .about-text {
   flex: 1 1 300px;
   max-width: 600px;
-  margin-top: -10px;
+  margin-top: -10px; /* naikkan keseluruhan text sedikit */
 }
 
 .about-text h2 {
@@ -245,12 +232,12 @@
   }
 
   .about-image {
-    width: 200px;
+    width: 200px; /* kecilkan gambar */
   }
 
   .about-text {
     max-width: 80%;
-    margin-top: -5px;
+    margin-top: -5px; /* naikkan sikit lagi untuk screen kecil */
   }
 
   .about-text h2 {
@@ -266,7 +253,7 @@
   }
 
   .gear-logos img {
-    height: 35px;
+    height: 35px; /* kecilkan logo brand */
   }
 }
 
@@ -276,7 +263,7 @@
   }
 
   .about-image {
-    width: 160px;
+    width: 160px; /* lagi kecil */
   }
 
   .about-text {
@@ -293,10 +280,7 @@
 </head>
 <body>
   <div class="bg-overlay"></div>
-
   <header>Fyrus Photography</header> 
-
-    <!-- WhatsApp Contact Link -->
   <div style="text-align: right; margin-top: 5px; padding-right: 10px;">
     <a href="https://ws.iamfyrus.com" target="_blank" style="text-decoration: none; color: #25D366; font-size: 0.8rem;">
       <i class="bi bi-whatsapp" style="font-size: 0.8rem; vertical-align: middle;"></i>
@@ -308,7 +292,6 @@
     <div class="grid" id="gallery-grid"></div>
   </main>
   
-      <!-- WhatsApp Contact Link -->
   <div style="text-align: left; margin-bottom: 20px; padding-left: 10px;">
     <a href="https://ws.iamfyrus.com" target="_blank" style="text-decoration: none; color: #25D366; font-size: 0.8rem;">
       <i class="bi bi-whatsapp" style="font-size: 0.8rem; vertical-align: middle;"></i>
@@ -337,7 +320,7 @@
           { title: "Emilie & Rahman", url: "https://iamfyrus.com/portrait/emilierahman", thumb: "https://drive.google.com/thumbnail?id=1ndu1Z2LNWP3MVbgQPsF5YjN947I1URqP&sz=w1500" },
           { title: "Iman Dalily", url: "https://iamfyrus.com/portrait/imandalily", thumb: "https://drive.google.com/thumbnail?id=1s6A-qKf3j6SlkgxIQIdMOt6O6euqWTVj&sz=w1500" },
           { title: "Alia", url: "https://iamfyrus.com/portrait/alia", thumb: "https://drive.google.com/thumbnail?id=1LPeu03kr24DNiTrvIFiB8o8O1_BS4c3k&sz=w1500" },
-          { title: "Syafika", url: "https://iamfyrus.com/portrait/syafika", thumb: "https://drive.google.com/thumbnail?id=1zbRd8aoqyRqMCNviHVyc6Zyb29RhEDYq&sz=w1500" },
+          { title: "Syafika", url: "https://iamfyrus.com/portrait/syafika", thumb: "https://drive.google.com/thumbnail?id=1zbRd8aoqyRqMCNviHVyc6Zyb29RhEDYqP&sz=w1500" },
           { title: "Alin & Amni", url: "https://iamfyrus.com/portrait/alinamni", thumb: "https://drive.google.com/thumbnail?id=1pkI5wy8w393NostsNVHeIg0Ii-mToEBB&sz=w1500" },
           { title: "Durra", url: "https://iamfyrus.com/portrait/durrasalleh", thumb: "https://drive.google.com/thumbnail?id=1vgd7aF63CWSFI6NcF19y5iqbXcjPMDBv&sz=w1500" },
           { title: "Kila & Ijoi", url: "https://iamfyrus.com/portrait/kilaijoi", thumb: "https://drive.google.com/thumbnail?id=1qKsq3VwzVXQxFfVbL_pc6qTviqZA_WSW&sz=w1500" },
@@ -354,66 +337,65 @@
       container.innerHTML = '';
       let delayCounter = 0;
 
-      galleries.forEach((group, groupIndex) => {
+      galleries.forEach((group, idx) => {
         const heading = document.createElement('div');
         heading.className = 'grid-category';
         heading.textContent = group.category;
         container.appendChild(heading);
 
-        // Wrapper untuk simpan card + button
-        const wrapper = document.createElement('div');
-        wrapper.className = 'grid';
-        wrapper.style.gridColumn = '1 / -1';
-        container.appendChild(wrapper);
+        // container untuk kategori
+        const catWrap = document.createElement('div');
+        catWrap.className = 'grid';
+        catWrap.id = `cat-${idx}`;
+        container.appendChild(catWrap);
 
-        // Simpan index berapa yang dah load
-        group._shown = 0;
+        // simpan index berapa dah render
+        group.currentIndex = 0;
+        renderMore(group, catWrap, delayCounter);
 
-        function loadMore() {
-          const nextItems = group.items.slice(group._shown, group._shown + perPage);
-          nextItems.forEach(item => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.style.animationDelay = `${delayCounter * 0.1}s`;
-            delayCounter++;
-            card.onclick = () => window.location.href = item.url;
-            card.innerHTML = `
-              <img src="${item.thumb}" alt="${item.title}" />
-              <div class="card-title">${item.title}</div>
-            `;
-            wrapper.appendChild(card);
-          });
-          group._shown += perPage;
-          if (group._shown >= group.items.length) {
-            btn.style.display = 'none';
-          }
+        // butang load more
+        if (group.items.length > perPage) {
+          const btn = document.createElement('button');
+          btn.textContent = "Load More";
+          btn.style.cssText = "grid-column:1/-1; margin:10px auto; padding:8px 16px; background:#333; color:#fff; border:none; cursor:pointer;";
+          btn.onclick = () => {
+            renderMore(group, catWrap, delayCounter);
+            if (group.currentIndex >= group.items.length) btn.style.display = 'none';
+          };
+          container.appendChild(btn);
         }
-
-        // Button load more
-        const btn = document.createElement('button');
-        btn.className = 'load-more';
-        btn.textContent = 'Load More';
-        btn.onclick = loadMore;
-        wrapper.appendChild(btn);
-
-        // Load batch pertama
-        loadMore();
       });
+    }
+
+    function renderMore(group, catWrap, delayCounter) {
+      const start = group.currentIndex;
+      const end = Math.min(start + perPage, group.items.length);
+      group.items.slice(start, end).forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.animationDelay = `${delayCounter * 0.1}s`;
+        delayCounter++;
+        card.onclick = () => window.location.href = item.url;
+
+        card.innerHTML = `
+          <img src="${item.thumb}" alt="${item.title}" />
+          <div class="card-title">${item.title}</div>
+        `;
+        catWrap.appendChild(card);
+      });
+      group.currentIndex = end;
     }
 
     function updateGridCols() {
       const width = window.innerWidth;
       let cols = 5;
+      if (width < 850) cols = 2;
+      else if (width < 1050) cols = 3;
+      else if (width < 1550) cols = 4;
 
-      if (width < 850) {
-        cols = 2;
-      } else if (width < 1050) {
-        cols = 3;
-      } else if (width < 1550) {
-        cols = 4;
-      }
-
-      container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+      document.querySelectorAll('.grid').forEach(g => {
+        g.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+      });
     }
 
     window.addEventListener('resize', updateGridCols);
@@ -451,10 +433,19 @@
         <i class="bi bi-instagram" style="font-size: 25px; color: #E1306C;"></i>
       </a>
       <a href="https://telegram.me/share/url?url=https://iamfyrus.com" target="_blank" style="margin: 0 15px; text-decoration: none;">
-        <i class="bi bi-telegram" style="font-size: 25px; color: #0088cc;"></i>
+        <i class="bi bi-telegram" style="font-size: 25px; color: #24A1DE;"></i>
+      </a>
+      <a href="https://x.com/intent/tweet?url=https://iamfyrus.com&text=Check This Photographer Portfolio" target="_blank" style="margin: 0 15px; text-decoration: none;">
+        <i class="bi bi-twitter-x" style="font-size: 25px; color: #FFFFFF;"></i>
+      </a>
+      <a href="https://wa.me/?text=Check%20out%20this%20photographer%20portfolio:%20https://iamfyrus.com" target="_blank" style="margin: 0 15px;">
+        <i class="bi bi-whatsapp" style="font-size: 25px; color: #25D366;"></i>
       </a>
     </div>
-    <p class="copyright">Copyright © <span id="year"></span> Fyrus Photography</p>
+    <div style="margin-top: 10px;"></div>
+    <div class="copyright">
+      &copy; <span id="year"></span> Fyrus Photography. All rights reserved.
+    </div>
   </footer>
 </body>
 </html>

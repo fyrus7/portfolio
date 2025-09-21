@@ -6,11 +6,15 @@
   <title>Fyrus Photography</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
 
-  <meta property="og:description" content="Photographer Portfolio">
-  <meta property="og:url" content="https://iamfyrus.com">
-  <meta property="og:image" content="https://iamfyrus.com/media/pportfolio3.jpg">
-  <meta property="og:type" content="website">
+	<!-- Open Graph meta tags -->
+    <!--<meta property="og:title" content="Fyrus Photography"> -->
+    <meta property="og:description" content="Photographer Portfolio">
+    <meta property="og:url" content="https://iamfyrus.com">
+    <meta property="og:image" content="https://iamfyrus.com/media/pportfolio3.jpg">
+    <meta property="og:type" content="website">
+    <!--<meta property="og:site_name" content="Fyrus Photography">-->
 
+	
 <style>
   html, body { 
     height: 100%;
@@ -105,23 +109,20 @@
     text-overflow: ellipsis;
   }
 
-  .load-more-btn {
+  .load-more {
     grid-column: 1 / -1;
-    text-align: center;
-    margin: 15px 0 30px;
-  }
-
-  .load-more-btn button {
-    background: rgba(255,255,255,0.1);
-    color: #fff;
-    border: 1px solid #666;
-    padding: 6px 18px;
+    margin: 15px auto;
+    padding: 8px 16px;
+    font-size: 0.9rem;
     cursor: pointer;
+    background: #222;
+    color: #fff;
+    border: 1px solid #555;
     border-radius: 3px;
   }
 
-  .load-more-btn button:hover {
-    background: rgba(255,255,255,0.2);
+  .load-more:hover {
+    background: #444;
   }
 
   footer {
@@ -133,15 +134,18 @@
 
   .copyright {
     font-size: 12px;
-    color: #ffffff;
+	color: #ffffff;
   }
-  
+	
+	/* Responsive for mobile */
   @media (max-width: 768px) {
-    .copyright {
-      font-size: 7px;
-    }
+  .copyright {
+    font-size: 7px;
   }
+}
 
+
+  /* Responsive adjustments for smaller screens */
   @media (max-width: 768px) {
     header {
       font-size: 1.5rem;
@@ -168,13 +172,131 @@
       text-overflow: unset;
     }
   }
+  
+.about-section {
+  padding: 40px 20px;
+  background-color: transparent;
+  color: #fff;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.about-image {
+  width: 270px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 2px solid #444;
+}
+
+.about-text {
+  flex: 1 1 300px;
+  max-width: 600px;
+  margin-top: -10px;
+}
+
+.about-text h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #f0f0f0;
+}
+
+.about-text p {
+  font-size: 0.8rem;
+  line-height: 1.2;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.gear-title {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.gear-logos {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+.gear-logos img {
+  height: 40px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  transition: transform 0.2s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-image {
+    width: 200px;
+  }
+
+  .about-text {
+    max-width: 80%;
+    margin-top: -5px;
+  }
+
+  .about-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .about-text p {
+    font-size: 0.8rem;
+  }
+
+  .gear-logos {
+    justify-content: center;
+  }
+
+  .gear-logos img {
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 30px 16px;
+  }
+
+  .about-image {
+    width: 160px;
+  }
+
+  .about-text {
+    max-width: 90%;
+    margin-top: -5px;
+  }
+
+  .gear-logos img {
+    height: 30px;
+  }
+}
 </style>
+
 </head>
 <body>
   <div class="bg-overlay"></div>
 
-  <header>Fyrus Photography</header>
+  <header>Fyrus Photography</header> 
 
+    <!-- WhatsApp Contact Link -->
   <div style="text-align: right; margin-top: 5px; padding-right: 10px;">
     <a href="https://ws.iamfyrus.com" target="_blank" style="text-decoration: none; color: #25D366; font-size: 0.8rem;">
       <i class="bi bi-whatsapp" style="font-size: 0.8rem; vertical-align: middle;"></i>
@@ -186,6 +308,7 @@
     <div class="grid" id="gallery-grid"></div>
   </main>
   
+      <!-- WhatsApp Contact Link -->
   <div style="text-align: left; margin-bottom: 20px; padding-left: 10px;">
     <a href="https://ws.iamfyrus.com" target="_blank" style="text-decoration: none; color: #25D366; font-size: 0.8rem;">
       <i class="bi bi-whatsapp" style="font-size: 0.8rem; vertical-align: middle;"></i>
@@ -226,56 +349,55 @@
 
     const container = document.getElementById('gallery-grid');
     const perPage = 6;
-    const currentIndex = {};
-
-    function renderCategory(group) {
-      if (!(group.category in currentIndex)) currentIndex[group.category] = 0;
-
-      const start = currentIndex[group.category];
-      const end = start + perPage;
-      const nextItems = group.items.slice(start, end);
-
-      nextItems.forEach((item, idx) => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.style.animationDelay = `${(start + idx) * 0.1}s`;
-        card.onclick = () => window.location.href = item.url;
-
-        card.innerHTML = `
-          <img src="${item.thumb}" alt="${item.title}" />
-          <div class="card-title">${item.title}</div>
-        `;
-        document.getElementById(`container-${group.category}`).appendChild(card);
-      });
-
-      currentIndex[group.category] = end;
-
-      if (currentIndex[group.category] >= group.items.length) {
-        document.getElementById(`btn-${group.category}`).style.display = "none";
-      }
-    }
 
     function createCards() {
       container.innerHTML = '';
-      galleries.forEach(group => {
+      let delayCounter = 0;
+
+      galleries.forEach((group, groupIndex) => {
         const heading = document.createElement('div');
         heading.className = 'grid-category';
         heading.textContent = group.category;
         container.appendChild(heading);
 
-        const subContainer = document.createElement('div');
-        subContainer.className = 'grid';
-        subContainer.id = `container-${group.category}`;
-        container.appendChild(subContainer);
+        // Wrapper untuk simpan card + button
+        const wrapper = document.createElement('div');
+        wrapper.className = 'grid';
+        wrapper.style.gridColumn = '1 / -1';
+        container.appendChild(wrapper);
 
-        const btnWrap = document.createElement('div');
-        btnWrap.className = 'load-more-btn';
-        btnWrap.innerHTML = `<button id="btn-${group.category}">Load More</button>`;
-        container.appendChild(btnWrap);
+        // Simpan index berapa yang dah load
+        group._shown = 0;
 
-        document.getElementById(`btn-${group.category}`).addEventListener('click', () => renderCategory(group));
+        function loadMore() {
+          const nextItems = group.items.slice(group._shown, group._shown + perPage);
+          nextItems.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.style.animationDelay = `${delayCounter * 0.1}s`;
+            delayCounter++;
+            card.onclick = () => window.location.href = item.url;
+            card.innerHTML = `
+              <img src="${item.thumb}" alt="${item.title}" />
+              <div class="card-title">${item.title}</div>
+            `;
+            wrapper.appendChild(card);
+          });
+          group._shown += perPage;
+          if (group._shown >= group.items.length) {
+            btn.style.display = 'none';
+          }
+        }
 
-        renderCategory(group); // load first 6
+        // Button load more
+        const btn = document.createElement('button');
+        btn.className = 'load-more';
+        btn.textContent = 'Load More';
+        btn.onclick = loadMore;
+        wrapper.appendChild(btn);
+
+        // Load batch pertama
+        loadMore();
       });
     }
 
@@ -283,13 +405,15 @@
       const width = window.innerWidth;
       let cols = 5;
 
-      if (width < 850) cols = 2;
-      else if (width < 1050) cols = 3;
-      else if (width < 1550) cols = 4;
+      if (width < 850) {
+        cols = 2;
+      } else if (width < 1050) {
+        cols = 3;
+      } else if (width < 1550) {
+        cols = 4;
+      }
 
-      document.querySelectorAll('.grid').forEach(grid => {
-        grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-      });
+      container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
     }
 
     window.addEventListener('resize', updateGridCols);
@@ -299,19 +423,38 @@
       document.getElementById("year").textContent = new Date().getFullYear();
     });
   </script>
+  
+  <div class="grid-category"></div>
+  
+  <section class="about-section">
+  <div class="about-container">
+    <img src="https://iamfyrus.com/media/photog.jpg" alt="Photographer" class="about-image" />
+    <div class="about-text">
+      <h2>the Photographer</h2>
+      <p>Hi, I'm Fyrus – a passionate wedding and portrait photographer dedicated to capturing your timeless moments. I believe in authentic emotion and storytelling through every shot.</p>
+      <p>Available for bookings around Klang Valley (and some Outstation area's). Let's create something beautiful.</p>
+	  <br>
+	  <p class="gear-title"><b>GEAR</b></p>
+	  <div class="gear-logos">
+	  <img src="https://iamfyrus.com/media/brands.png" alt="Brands" />
+	  </div>
+    </div>
+  </div>
+</section>
 
   <footer>
     <div style="text-align: center; margin-top: 10px;">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://iamfyrus.com" target="_blank"><i class="bi bi-facebook" style="font-size: 25px; color: #3b5998;"></i></a>
-      <a href="https://www.instagram.com/sharer.php?u=https://iamfyrus.com" target="_blank"><i class="bi bi-instagram" style="font-size: 25px; color: #E1306C;"></i></a>
-      <a href="https://telegram.me/share/url?url=https://iamfyrus.com" target="_blank"><i class="bi bi-telegram" style="font-size: 25px; color: #24A1DE;"></i></a>
-      <a href="https://x.com/intent/tweet?url=https://iamfyrus.com&text=Check This Photographer Portfolio" target="_blank"><i class="bi bi-twitter-x" style="font-size: 25px; color: #FFFFFF;"></i></a>
-      <a href="https://wa.me/?text=Check%20out%20this%20photographer%20portfolio:%20https://iamfyrus.com" target="_blank"><i class="bi bi-whatsapp" style="font-size: 25px; color: #25D366;"></i></a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://iamfyrus.com" target="_blank" style="margin: 0 15px; text-decoration: none;">
+        <i class="bi bi-facebook" style="font-size: 25px; color: #3b5998;"></i>
+      </a>
+      <a href="https://www.instagram.com/sharer.php?u=https://iamfyrus.com" target="_blank" style="margin: 0 15px; text-decoration: none;">
+        <i class="bi bi-instagram" style="font-size: 25px; color: #E1306C;"></i>
+      </a>
+      <a href="https://telegram.me/share/url?url=https://iamfyrus.com" target="_blank" style="margin: 0 15px; text-decoration: none;">
+        <i class="bi bi-telegram" style="font-size: 25px; color: #0088cc;"></i>
+      </a>
     </div>
-    <div style="margin-top: 10px;"></div>
-    <div class="copyright">
-      &copy; <span id="year"></span> Fyrus Photography. All rights reserved.
-    </div>
+    <p class="copyright">Copyright © <span id="year"></span> Fyrus Photography</p>
   </footer>
 </body>
 </html>

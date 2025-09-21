@@ -109,41 +109,44 @@
 
     const container=document.getElementById("gallery-grid");
     function createCards(){
-      container.innerHTML="";
-      let delayCounter=0;
-      galleries.forEach((group,gIndex)=>{
-        const heading=document.createElement("div");
-        heading.className="grid-category";
-        heading.textContent=group.category;
-        container.appendChild(heading);
+  container.innerHTML="";
+  let delayCounter=0;
+  galleries.forEach((group)=>{
+    const heading=document.createElement("div");
+    heading.className="grid-category";
+    heading.textContent=group.category;
+    container.appendChild(heading);
 
-        group.items.forEach((item,i)=>{
-          const card=document.createElement("div");
-          card.className="card";
-          card.style.animationDelay=`${delayCounter*0.1}s`;
-          delayCounter++;
-          card.onclick=()=>window.location.href=item.url;
-          card.innerHTML=`<img src="${item.thumb}" alt="${item.title}" /><div class="card-title">${item.title}</div>`;
-          if(i>=6) card.style.display="none"; // hide extra
-          container.appendChild(card);
-        });
+    group.items.forEach((item,i)=>{
+      const card=document.createElement("div");
+      card.className="card";
+      card.dataset.category = group.category; // 🔑 simpan kategori
+      card.style.animationDelay=`${delayCounter*0.1}s`;
+      delayCounter++;
+      card.onclick=()=>window.location.href=item.url;
+      card.innerHTML=`<img src="${item.thumb}" alt="${item.title}" /><div class="card-title">${item.title}</div>`;
+      if(i>=6) card.style.display="none"; // hide extra
+      container.appendChild(card);
+    });
 
-        if(group.items.length>6){
-          const loadMoreDiv=document.createElement("div");
-          loadMoreDiv.className="load-more";
-          const btn=document.createElement("button");
-          btn.textContent="Load More";
-          btn.onclick=()=>{
-            const cards=[...container.querySelectorAll(".card")].filter(c=>c.previousSibling && c.previousSibling.textContent!==group.category?false:true);
-            let hidden=cards.filter(c=>c.style.display==="none").slice(0,6);
-            hidden.forEach(c=>c.style.display="block");
-            if(cards.every(c=>c.style.display==="block")) btn.style.display="none";
-          };
-          loadMoreDiv.appendChild(btn);
-          container.appendChild(loadMoreDiv);
-        }
-      });
+    if(group.items.length>6){
+      const loadMoreDiv=document.createElement("div");
+      loadMoreDiv.className="load-more";
+      const btn=document.createElement("button");
+      btn.textContent="Load More";
+      btn.onclick=()=>{
+        // cari card ikut kategori
+        const cards=[...container.querySelectorAll(`.card[data-category="${group.category}"]`)];
+        const hidden=cards.filter(c=>c.style.display==="none").slice(0,6);
+        hidden.forEach(c=>c.style.display="block");
+        if(cards.every(c=>c.style.display==="block")) btn.style.display="none";
+      };
+      loadMoreDiv.appendChild(btn);
+      container.appendChild(loadMoreDiv);
     }
+  });
+}
+
 
     function updateGridCols(){
       const width=window.innerWidth;

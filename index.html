@@ -129,21 +129,25 @@
       container.appendChild(card);
     });
 
-    if(group.items.length>6){
-      const loadMoreDiv=document.createElement("div");
-      loadMoreDiv.className="load-more";
-      const btn=document.createElement("button");
-      btn.textContent="Load More";
-      btn.onclick=()=>{
-        // cari card ikut kategori
-        const cards=[...container.querySelectorAll(`.card[data-category="${group.category}"]`)];
-        const hidden=cards.filter(c=>c.style.display==="none").slice(0,6);
-        hidden.forEach(c=>c.style.display="block");
-        if(cards.every(c=>c.style.display==="block")) btn.style.display="none";
-      };
-      loadMoreDiv.appendChild(btn);
-      container.appendChild(loadMoreDiv);
+    if(group.items.length > 6){
+  const loadMoreDiv = document.createElement("div");
+  loadMoreDiv.className = "load-more";
+  const btn = document.createElement("button");
+  btn.textContent = "Load More";
+  btn.onclick = () => {
+    // cari card ikut kategori
+    const cards = [...container.querySelectorAll(`.card[data-category="${group.category}"]`)];
+    const hidden = cards.filter(c => c.style.display === "none").slice(0, 6);
+    hidden.forEach(c => c.style.display = "block");
+
+    // kalau semua dah keluar → hide button
+    if (cards.every(c => c.style.display === "block")) {
+      btn.style.display = "none";
     }
+  };
+  loadMoreDiv.appendChild(btn);
+  container.appendChild(loadMoreDiv);
+}
   });
 }
 

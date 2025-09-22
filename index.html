@@ -24,38 +24,255 @@
     position: relative;
     z-index: 0;
   }
+
   @font-face {
     font-family: 'BlairITCMedium';
     src: url('https://www.iamfyrus.com/font/BlairITC-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
   }
-  .bg-overlay { position: fixed; top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.6);z-index:-1; }
-  header { text-align:center;padding:30px 10px;font-size:2rem;background:rgba(30,30,30,0.85); }
-  main { flex:1; }
-  .grid { display:grid;gap:5px;padding:20px 10px;grid-template-columns:repeat(5,1fr); }
-  .grid-category { grid-column:1/-1;font-size:1.5rem;padding:30px 10px 10px;border-bottom:1px solid #444; }
-  .card { background-color:rgba(30,30,30,0.9);border-radius:2px;overflow:hidden;cursor:pointer;border:1px solid #333;transform:translateY(30px);opacity:0;animation:slideUpFade 0.6s ease forwards; }
-  .card:hover { transform:translateY(0) scale(1.03); }
-  @keyframes slideUpFade { to { transform:translateY(0);opacity:1; } }
-  .card img { width:100%;height:400px;object-fit:cover;display:block; }
-  .card-title { padding:10px;font-size:1rem;text-align:center;color:#ccc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
-  .load-more { grid-column:1/-1;text-align:center;margin:15px 0; }
-  .load-more button { background:#222;color:#fff;border:1px solid #555;padding:8px 16px;cursor:pointer;font-size:0.9rem; }
-  .load-more button:hover { background:#444; }
-  footer { background-color:#121212;padding:10px 0 15px;color:#455A64;text-align:center; }
-  .copyright { font-size:12px;color:#fff; }
-  @media(max-width:768px){ .copyright{font-size:7px;} header{font-size:1.5rem;padding:20px 10px;} .grid{grid-template-columns:repeat(2,1fr);} .grid-category{font-size:1.2rem;padding:20px 10px 10px;} .card img{height:220px;} .card-title{font-size:0.7rem;padding:6px;white-space:normal;text-overflow:unset;} }
-  .about-section{padding:40px 20px;background-color:transparent;color:#fff;}
-  .about-container{display:flex;align-items:center;justify-content:center;max-width:1000px;margin:0 auto;gap:30px;flex-wrap:wrap;}
-  .about-image{width:270px;border-radius:4px;object-fit:cover;border:2px solid #444;}
-  .about-text{flex:1 1 300px;max-width:600px;margin-top:-10px;}
-  .about-text h2{font-size:1.2rem;margin-bottom:10px;color:#f0f0f0;}
-  .about-text p{font-size:0.8rem;line-height:1.2;color:#ccc;margin-bottom:10px;}
-  .gear-title{margin:10px 0 0;}
-  .gear-logos{display:flex;justify-content:flex-start;}
-  .gear-logos img{height:40px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.9;transition:transform 0.2s ease;}
-  @media(max-width:768px){.about-container{flex-direction:column;text-align:center}.about-image{width:200px}.about-text{max-width:80%;margin-top:-5px}.gear-logos{justify-content:center}.gear-logos img{height:35px}}
-  @media(max-width:480px){.about-section{padding:30px 16px}.about-image{width:160px}.about-text{max-width:90%;margin-top:-5px}.gear-logos img{height:30px}}
+
+  .bg-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+  }
+
+  header {
+    text-align: center;
+    padding: 30px 10px;
+    font-size: 2rem;
+    background: rgba(30, 30, 30, 0.85);
+  /*  border-bottom: 1px solid #444; */
+  }
+
+  main {
+    flex: 1;
+  }
+
+  .grid {
+    display: grid;
+    gap: 5px;
+    padding: 20px 10px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .grid-category {
+    grid-column: 1 / -1;
+    font-size: 1.5rem;
+   /* font-weight: bold; */
+    padding: 30px 10px 10px;
+    color: #fff;
+    border-bottom: 1px solid #444;
+  }
+
+  .card {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #333;
+    transform: translateY(30px);
+    opacity: 0;
+    animation: slideUpFade 0.6s ease forwards;
+  }
+
+  .card:hover {
+    transform: translateY(0) scale(1.03);
+  }
+
+  @keyframes slideUpFade {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-title {
+    padding: 10px;
+    font-size: 1rem;
+    text-align: center;
+    color: #ccc;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  footer {
+    background-color: #121212;
+    padding: 10px 0 15px;
+    color: #455A64;
+    text-align: center;
+  }
+
+  .copyright {
+    font-size: 12px;
+	color: #ffffff;
+  }
+	
+	/* Responsive for mobile */
+  @media (max-width: 768px) {
+  .copyright {
+    font-size: 7px;
+  }
+}
+
+
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 768px) {
+    header {
+      font-size: 1.5rem; /* 1rem; */
+      padding: 20px 10px;
+    }
+
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-category {
+      font-size: 1.2rem; /* 0.9rem; */
+      padding: 20px 10px 10px;
+      /* removed text-align: center */
+    }
+
+    .card img {
+      height: 220px;
+    }
+
+    .card-title {
+      font-size: 0.7rem;
+      padding: 6px 6px;
+      white-space: normal;
+      text-overflow: unset;
+    }
+  }
+  
+.about-section {
+  padding: 40px 20px;
+  background-color: transparent;
+  color: #fff;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 30px;
+  flex-wrap: wrap; /* wrap to stack image/text on small screens */
+}
+
+.about-image {
+  width: 270px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 2px solid #444;
+}
+
+.about-text {
+  flex: 1 1 300px;
+  max-width: 600px;
+  margin-top: -10px; /* naikkan keseluruhan text sedikit */
+}
+
+.about-text h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #f0f0f0;
+}
+
+.about-text p {
+  font-size: 0.8rem;
+  line-height: 1.2;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.gear-title {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.gear-logos {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+.gear-logos img {
+  height: 40px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  transition: transform 0.2s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-image {
+    width: 200px; /* kecilkan gambar */
+  }
+
+  .about-text {
+    max-width: 80%;
+    margin-top: -5px; /* naikkan sikit lagi untuk screen kecil */
+  }
+
+  .about-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .about-text p {
+    font-size: 0.8rem;
+  }
+
+  .gear-logos {
+    justify-content: center;
+  }
+
+  .gear-logos img {
+    height: 35px; /* kecilkan logo brand */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 30px 16px;
+  }
+
+  .about-image {
+    width: 160px; /* lagi kecil */
+  }
+
+  .about-text {
+    max-width: 90%;
+    margin-top: -5px;
+  }
+
+  .gear-logos img {
+    height: 30px;
+  }
+}
 </style>
+  
 </head>
 <body>
   <div class="bg-overlay"></div>
@@ -182,15 +399,28 @@
     </div>
   </section>
 
-  <footer>
-    <div style="text-align:center;margin-top:10px;">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://iamfyrus.com" target="_blank"><i class="bi bi-facebook" style="font-size:25px;color:#3b5998;"></i></a>
-      <a href="https://www.instagram.com/sharer.php?u=https://iamfyrus.com" target="_blank"><i class="bi bi-instagram" style="font-size:25px;color:#E1306C;"></i></a>
-      <a href="https://telegram.me/share/url?url=https://iamfyrus.com" target="_blank"><i class="bi bi-telegram" style="font-size:25px;color:#24A1DE;"></i></a>
-      <a href="https://x.com/intent/tweet?url=https://iamfyrus.com&text=Check This Photographer Portfolio" target="_blank"><i class="bi bi-twitter-x" style="font-size:25px;color:#fff;"></i></a>
-      <a href="https://wa.me/?text=Check%20out%20this%20photographer%20portfolio:%20https://iamfyrus.com" target="_blank"><i class="bi bi-whatsapp" style="font-size:25px;color:#25D366;"></i></a>
+<footer>
+    <div style="text-align: center; margin-top: 10px;">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://iamfyrus.com" target="_blank" style="margin: 0 15px; text-decoration: none;">
+        <i class="bi bi-facebook" style="font-size: 25px; color: #3b5998;"></i>
+      </a>
+      <a href="https://www.instagram.com/sharer.php?u=https://iamfyrus.com" target="_blank" style="margin: 0 15px; text-decoration: none;">
+        <i class="bi bi-instagram" style="font-size: 25px; color: #E1306C;"></i>
+      </a>
+      <a href="https://telegram.me/share/url?url=https://iamfyrus.com" target="_blank" style="margin: 0 15px; text-decoration: none;">
+        <i class="bi bi-telegram" style="font-size: 25px; color: #24A1DE;"></i>
+      </a>
+      <a href="https://x.com/intent/tweet?url=https://iamfyrus.com&text=Check This Photographer Portfolio" target="_blank" style="margin: 0 15px; text-decoration: none;">
+        <i class="bi bi-twitter-x" style="font-size: 25px; color: #FFFFFF;"></i>
+      </a>
+      <a href="https://wa.me/?text=Check%20out%20this%20photographer%20portfolio:%20https://iamfyrus.com" target="_blank" style="margin: 0 15px;">
+        <i class="bi bi-whatsapp" style="font-size: 25px; color: #25D366;"></i>
+      </a>
     </div>
-    <div class="copyright">&copy; <span id="year"></span> Fyrus Photography. All rights reserved.</div>
+    <div style="margin-top: 10px;"></div>
+    <div class="copyright">
+      &copy; <span id="year"></span> Fyrus Photography. All rights reserved.
+    </div>
   </footer>
 </body>
 </html>

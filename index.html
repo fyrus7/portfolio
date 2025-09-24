@@ -378,12 +378,13 @@
   transition: max-height 0.4s ease-out;
   background: rgba(30,30,30,0.9);
   padding: 0 14px;
-  margin-top: 8px;
-  border: none; /* default takde border */
+  margin-top: 0;   /* ubah 8px -> 0 supaya rapat */
+  border: none;    /* default tiada border */
 }
 
 .collapsible.active + .collapsible-content {
-  border: 1px solid #333; /* keluar border bila aktif je */
+  border: 1px solid #333;   /* bila buka baru keluar border */
+  margin-top: 8px;          /* bila buka baru ada gap sikit */
 }
 
 .collapsible-content p {

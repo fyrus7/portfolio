@@ -292,29 +292,31 @@
 }
 </style>
 
+
+<!-- CSS -->
 <style>
 .collapsible-container {
   display: flex;
-  justify-content: center; /* tengah */
-  gap: 10px; /* jarak antara button */
+  justify-content: center; /* center align */
+  gap: 12px; /* jarak antara button */
   flex-wrap: nowrap; /* jangan jatuh bawah */
 }
 
 .collapsible-box {
-  flex: unset; /* jangan paksa ikut % */
+  flex: unset; /* jangan ikut % */
 }
 
 .collapsible {
   background: #222;
   color: #fff;
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 10px 18px;
   border: 1px solid #444;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 1rem;
   border-radius: 6px;
-  min-width: 140px;  /* kasi sama panjang */
-  max-width: 160px;
+  min-width: 160px;
+  max-width: 200px;
   transition: background 0.3s;
 }
 
@@ -323,12 +325,12 @@
 }
 
 .collapsible:after {
-  content: '\25BC'; /* panah turun */
+  content: '\25BC';
   float: right;
 }
 
 .collapsible.active:after {
-  content: '\25B2'; /* panah naik */
+  content: '\25B2';
 }
 
 .collapsible-content {
@@ -352,15 +354,26 @@
   padding-left: 20px;
 }
 
-/* kecikkan sikit untuk mobile */
-@media (max-width: 576px) {
+/* Tablet */
+@media (max-width: 991px) {
   .collapsible {
-    font-size: 0.75rem;
-    padding: 6px 12px;
-    min-width: 110px;
-    max-width: 120px;
+    font-size: 0.9rem;
+    padding: 8px 14px;
+    min-width: 140px;
+    max-width: 160px;
   }
 }
+
+/* Mobile */
+@media (max-width: 576px) {
+  .collapsible {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    min-width: 120px;
+    max-width: 130px;
+  }
+}
+
 </style>
 	
 </head>

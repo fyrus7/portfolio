@@ -297,42 +297,33 @@
 <style>
 .collapsible-container {
   display: flex;
-  justify-content: center; /* center align */
-  gap: 12px; /* jarak antara button */
-  flex-wrap: nowrap; /* jangan jatuh bawah */
+  gap: 10px;
+  flex-wrap: wrap;
 }
-
 .collapsible-box {
-  flex: unset; /* jangan ikut % */
+  flex: 1 1 48%;
 }
-
 .collapsible {
   background: #222;
   color: #fff;
   cursor: pointer;
-  padding: 10px 18px;
+  padding: 10px 14px;
   border: 1px solid #444;
-  text-align: center;
-  font-size: 1rem;
-  border-radius: 6px;
-  min-width: 160px;
-  max-width: 200px;
+  text-align: left;
+  font-size: 0.9rem;
+  width: 100%;
   transition: background 0.3s;
 }
-
 .collapsible:hover {
   background: #333;
 }
-
 .collapsible:after {
-  content: '\25BC';
+  content: '\25BC'; /* panah turun */
   float: right;
 }
-
 .collapsible.active:after {
-  content: '\25B2';
+  content: '\25B2'; /* panah naik */
 }
-
 .collapsible-content {
   max-height: 0;
   overflow: hidden;
@@ -342,38 +333,15 @@
   margin-top: 8px;
   border: 1px solid #333;
 }
-
-.collapsible-content p,
-.collapsible-content ul,
+.collapsible-content p, 
+.collapsible-content ul, 
 .collapsible-content h3 {
   color: #ddd;
   font-size: 0.85rem;
 }
-
 .collapsible-content ul {
   padding-left: 20px;
 }
-
-/* Tablet */
-@media (max-width: 991px) {
-  .collapsible {
-    font-size: 0.9rem;
-    padding: 8px 14px;
-    min-width: 140px;
-    max-width: 160px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-  .collapsible {
-    font-size: 0.8rem;
-    padding: 6px 12px;
-    min-width: 120px;
-    max-width: 130px;
-  }
-}
-
 </style>
 	
 </head>

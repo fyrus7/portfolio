@@ -291,7 +291,58 @@
   }
 }
 </style>
-  
+
+	<!-- CSS -->
+<style>
+.collapsible-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.collapsible-box {
+  flex: 1 1 48%;
+}
+.collapsible {
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 14px;
+  border: 1px solid #444;
+  text-align: left;
+  font-size: 0.9rem;
+  width: 100%;
+  transition: background 0.3s;
+}
+.collapsible:hover {
+  background: #333;
+}
+.collapsible:after {
+  content: '\25BC'; /* panah turun */
+  float: right;
+}
+.collapsible.active:after {
+  content: '\25B2'; /* panah naik */
+}
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  background: rgba(30,30,30,0.9);
+  padding: 0 14px;
+  margin-top: 8px;
+  border: 1px solid #333;
+}
+.collapsible-content p, 
+.collapsible-content ul, 
+.collapsible-content h3 {
+  color: #ddd;
+  font-size: 0.85rem;
+}
+.collapsible-content ul {
+  padding-left: 20px;
+}
+</style>
+	
 </head>
 <body>
   <div class="bg-overlay"></div>
@@ -469,6 +520,102 @@
       </div>
     </div>
   </section>
+
+<!-- Terms & Copyright Section -->
+<section class="info-section">
+  <div class="collapsible-container">
+    
+    <!-- Terma & Syarat -->
+    <div class="collapsible-box">
+      <button class="collapsible">Terma & Syarat</button>
+      <div class="collapsible-content">
+        <h3>Bahasa Melayu</h3>
+        <ul>
+          <li>Tempahan hanya disahkan selepas bayaran deposit dibuat.</li>
+          <li>Deposit ialah <strong>RM300 ATAU 50%</strong> daripada jumlah penuh (mana yang lebih tinggi).</li>
+          <li>Deposit adalah <strong>tidak boleh dipulangkan</strong> jika tempahan dibatalkan.</li>
+          <li>Baki pembayaran mesti dijelaskan <strong>seminggu sebelum majlis/event</strong> atau selewat-lewatnya <strong>pada hari majlis/event</strong>.</li>
+          <li>Kegagalan bayar baki boleh menyebabkan servis fotografi ditangguh atau dibatalkan tanpa tuntutan balik.</li>
+        </ul>
+        <hr style="margin:20px 0; border:0; border-top:1px solid #444;">
+        <h3>English</h3>
+        <ul>
+          <li>Booking is only confirmed upon deposit payment.</li>
+          <li>The deposit is <strong>RM300 OR 50%</strong> of the package price (whichever is higher).</li>
+          <li>Deposit is <strong>non-refundable</strong> if the booking is cancelled.</li>
+          <li>Balance must be settled <strong>at least one week before the event</strong> or <strong>on the event day</strong>.</li>
+          <li>Failure to settle may result in service postponement or cancellation without refund.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Hakcipta / Copyright -->
+    <div class="collapsible-box">
+      <button class="collapsible">Hakcipta / Copyright</button>
+      <div class="collapsible-content">
+        <h3>Bahasa Melayu</h3>
+        <p>
+          Semua foto dalam laman web ini adalah hasil karya asal jurugambar dan dilindungi di bawah 
+          <strong>Akta Hakcipta 1987 (Malaysia)</strong>.
+        </p>
+        <p>
+          Melainkan terdapat <strong>perjanjian bertulis mengenai pindah hak milik</strong>, semua gambar adalah 
+          <strong>hak milik mutlak jurugambar</strong>. Pembayaran tidak secara automatik memindahkan hak cipta kepada klien.
+        </p>
+        <ul>
+          <li>Dilarang memuat turun, menyalin, mencetak atau mengedar tanpa kebenaran.</li>
+          <li>Dilarang mengubahsuai, mengedit atau menggunakan semula tanpa persetujuan bertulis.</li>
+          <li>Penggunaan komersial / penerbitan memerlukan kebenaran rasmi.</li>
+        </ul>
+        <hr style="margin:20px 0; border:0; border-top:1px solid #444;">
+        <h3>English</h3>
+        <p>
+          All photographs on this website are original works of the photographer and are protected under the 
+          <strong>Copyright Act 1987 (Malaysia)</strong>.
+        </p>
+        <p>
+          Unless there is a <strong>written agreement transferring ownership</strong>, all images remain the 
+          <strong>exclusive property of the photographer</strong>. Payment does not automatically transfer copyright.
+        </p>
+        <ul>
+          <li>Downloading, copying, printing, or distributing without permission is prohibited.</li>
+          <li>Altering, editing, or reusing without written consent is not allowed.</li>
+          <li>Commercial or publishing use requires official approval.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- JS -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const coll = document.querySelectorAll(".collapsible");
+
+  coll.forEach(btn => {
+    btn.addEventListener("click", function() {
+      // tutup semua dulu
+      coll.forEach(b => {
+        if (b !== this) {
+          b.classList.remove("active");
+          b.nextElementSibling.style.maxHeight = null;
+        }
+      });
+
+      // toggle current
+      this.classList.toggle("active");
+      const content = this.nextElementSibling;
+      if (this.classList.contains("active")) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        content.style.maxHeight = null;
+      }
+    });
+  });
+});
+</script>
+	
 
 <footer>
     <div style="text-align: center; margin-top: 10px;">

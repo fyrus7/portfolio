@@ -295,35 +295,49 @@
 
 <!-- CSS -->
 <style>
-.collapsible-container {
+.info-section {
+  padding: 40px 20px;
+  background-color: transparent;
+  color: #fff;
+}
+
+.info-container {
+  max-width: 1000px;  /* sama macam .about-container */
+  margin: 0 auto;
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  flex-direction: column; /* susun atas bawah */
+  gap: 20px;
 }
+
 .collapsible-box {
-  flex: 1 1 48%;
+  width: 100%;
 }
+
 .collapsible {
   background: #222;
   color: #fff;
   cursor: pointer;
-  padding: 10px 14px;
+  padding: 12px 18px;
   border: 1px solid #444;
   text-align: left;
   font-size: 0.9rem;
-  width: 100%;
+  width: 100%; /* ikut lebar container */
   transition: background 0.3s;
 }
+
 .collapsible:hover {
   background: #333;
 }
+
 .collapsible:after {
   content: '\25BC'; /* panah turun */
   float: right;
 }
+
 .collapsible.active:after {
   content: '\25B2'; /* panah naik */
 }
+
 .collapsible-content {
   max-height: 0;
   overflow: hidden;
@@ -333,15 +347,30 @@
   margin-top: 8px;
   border: 1px solid #333;
 }
-.collapsible-content p, 
-.collapsible-content ul, 
-.collapsible-content h3 {
+
+.collapsible-content p {
   color: #ddd;
   font-size: 0.85rem;
+  margin: 10px 0;
 }
-.collapsible-content ul {
-  padding-left: 20px;
+
+/* Responsive ikut style about */
+@media (max-width: 768px) {
+  .info-container {
+    max-width: 80%;
+  }
 }
+
+@media (max-width: 480px) {
+  .info-container {
+    max-width: 90%;
+  }
+  .collapsible {
+    font-size: 0.8rem;
+    padding: 10px 14px;
+  }
+}
+
 </style>
 	
 </head>

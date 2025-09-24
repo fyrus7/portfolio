@@ -295,6 +295,40 @@
 
 <!-- CSS -->
 <style>
+/* Wrapper ikut style about-section */
+.info-section {
+  padding: 40px 20px;
+  background: transparent;
+  color: #fff;
+}
+
+.collapsible-container {
+  max-width: 1000px;   /* sama macam about */
+  margin: 0 auto;      /* center */
+  display: flex;
+  flex-direction: column; /* stack atas bawah */
+  gap: 16px;
+}
+
+/* Button block */
+.collapsible-box {
+  width: 100%;
+}
+
+/* Button style */
+.collapsible {
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+  padding: 12px 16px;
+  border: 1px solid #444;
+  text-align: left;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  transition: background 0.3s;
+  width: 100%;   /* ikut container, bukan full page */
+}
+/*
 .info-section {
   padding: 40px 20px;
   background-color: transparent;
@@ -302,10 +336,10 @@
 }
 
 .info-container {
-  max-width: 1000px;  /* sama macam .about-container */
+  max-width: 1000px;  /* sama macam .about-container *
   margin: 0 auto;
   display: flex;
-  flex-direction: column; /* susun atas bawah */
+  flex-direction: column; /* susun atas bawah *
   gap: 20px;
 }
 
@@ -321,9 +355,9 @@
   border: 1px solid #444;
   text-align: left;
   font-size: 0.9rem;
-  width: 100%; /* ikut lebar container */
+  width: 100%; /* ikut lebar container *
   transition: background 0.3s;
-}
+} */
 
 .collapsible:hover {
   background: #333;

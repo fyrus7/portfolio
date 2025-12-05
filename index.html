@@ -1,498 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fyrus Photography</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fyrus Photography</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css">
 
-  <meta property="og:description" content="Photographer Portfolio">
-  <meta property="og:url" content="https://iamfyrus.com">
-  <meta property="og:image" content="https://raw.githubusercontent.com/fyrus7/portfolio/heads/main/media/pportfolio3.jpg">
-  <meta property="og:type" content="website">
+<meta property="og:description" content="Photographer Portfolio">
+<meta property="og:url" content="https://iamfyrus.com">
+<meta property="og:image" content="https://raw.githubusercontent.com/fyrus7/portfolio/heads/main/media/pportfolio3.jpg">
+<meta property="og:type" content="website">
 
 <style>
-  html, body { 
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    font-family: 'BlairITCMedium', 'Segoe UI', sans-serif;
-    background: url('https://raw.githubusercontent.com/fyrus7/portfolio/heads/main/media/fujixt3.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-    position: relative;
-    z-index: 0;
-  }
-
-  @font-face {
-    font-family: 'BlairITCMedium';
-    src: url('https://raw.githubusercontent.com/fyrus7/portfolio/heads/main/font/BlairITC-Medium.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  button {
-	font-family: 'BlairITCMedium', 'Segoe UI', sans-serif;
-  }
-
-  .bg-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: -1;
-  }
-
-  header {
-    text-align: center;
-    padding: 30px 10px;
-    font-size: 2rem;
-    background: rgba(30, 30, 30, 0.85);
-  /*  border-bottom: 1px solid #444; */
-  }
-
-  main {
-    flex: 1;
-  }
-
-  .grid {
-    display: grid;
-    gap: 5px;
-    padding: 20px 10px;
-    grid-template-columns: repeat(5, 1fr);
-  }
-
-  .grid-category {
-    grid-column: 1 / -1;
-    font-size: 1.5rem;
-   /* font-weight: bold; */
-    padding: 30px 10px 10px;
-    color: #fff;
-    border-bottom: 1px solid #444;
-  }
-
-  .card {
-    background-color: rgba(30, 30, 30, 0.9);
-    border-radius: 2px;
-    overflow: hidden;
-    cursor: pointer;
-    border: 1px solid #333;
-    transform: translateY(30px);
-    opacity: 0;
-    animation: slideUpFade 0.6s ease forwards;
-  }
-
-  .card:hover {
-    transform: translateY(0) scale(1.03);
-  }
-
-  @keyframes slideUpFade {
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  .card img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    display: block;
-  }
-
-  .card-title {
-    padding: 10px;
-    font-size: 1rem;
-    text-align: center;
-    color: #ccc;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .load-more {
-	grid-column:1/-1;
-	text-align:center;
-	margin:15px 0;
-  }
-  .load-more button { 
-	background:#222;
-	color:#fff;
-	border:1px solid #555;
-	padding:8px 16px;
-	cursor:pointer;
-	font-size:0.9rem;
-  }
-  .load-more button:hover {
-	background:#444;
-  }
-
-  footer {
-    background-color: #121212;
-    padding: 10px 0 15px;
-    color: #455A64;
-    text-align: center;
-  }
-
-  .copyright {
-    font-size: 12px;
-	color: #ffffff;
-  }
-	
-	/* Responsive for mobile */
-  @media (max-width: 768px) {
-  .copyright {
-    font-size: 7px;
-  }
-}
-
-
-  /* Responsive adjustments for smaller screens */
-  @media (max-width: 768px) {
-    header {
-      font-size: 1.5rem; /* 1rem; */
-      padding: 20px 10px;
-    }
-
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .grid-category {
-      font-size: 1.2rem; /* 0.9rem; */
-      padding: 20px 10px 10px;
-      /* removed text-align: center */
-    }
-
-    .card img {
-      height: 220px;
-    }
-
-    .card-title {
-      font-size: 0.7rem;
-      padding: 6px 6px;
-      white-space: normal;
-      text-overflow: unset;
-    }
-  }
-  
-.about-section {
-  padding: 40px 20px;
-  background-color: transparent;
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'BlairITCMedium', 'Segoe UI', sans-serif;
+  background: url('https://raw.githubusercontent.com/fyrus7/portfolio/heads/main/media/fujixt3.jpg') no-repeat center center fixed;
+  background-size: cover;
   color: #fff;
 }
 
-.about-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 1000px;
+@font-face {
+  font-family: 'BlairITCMedium';
+  src: url('https://raw.githubusercontent.com/fyrus7/portfolio/heads/main/font/BlairITC-Medium.ttf') format('truetype');
+}
+
+button { font-family: 'BlairITCMedium', 'Segoe UI', sans-serif; }
+
+.bg-overlay {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: -1;
+}
+
+/* Container wrapper */
+.container-wrapper {
+  max-width: 1200px;
   margin: 0 auto;
-  gap: 30px;
-  flex-wrap: wrap; /* wrap to stack image/text on small screens */
+  padding: 0 15px;
+  width: 100%;
 }
 
-.about-image {
-  width: 270px;
-  height: auto;
-  border-radius: 4px;
-  object-fit: cover;
-  border: 2px solid #444;
+header {
+  text-align: center;
+  padding: 30px 0;
+  font-size: 2rem;
+  background: rgba(30,30,30,0.85);
 }
 
-.about-text {
-  flex: 1 1 300px;
-  max-width: 600px;
-  margin-top: -10px; /* naikkan keseluruhan text sedikit */
+.top-book {
+  text-align: right;
+  margin-top: 5px;
 }
 
-.about-text h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #f0f0f0;
-}
-
-.about-text p {
+.top-book a {
   font-size: 0.8rem;
-  line-height: 1.2;
+  color: #25D366;
+  text-decoration: none;
+}
+
+main {
+  flex: 1;
+}
+
+.grid {
+  display: grid;
+  gap: 5px;
+  padding: 20px 0;
+}
+
+.grid-category {
+  grid-column: 1 / -1;
+  font-size: 1.5rem;
+  padding: 30px 0 10px;
+  color: #fff;
+  border-bottom: 1px solid #444;
+}
+
+.card {
+  background-color: rgba(30,30,30,0.9);
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #333;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUpFade 0.6s ease forwards;
+}
+
+.card:hover { transform: translateY(0) scale(1.03); }
+
+@keyframes slideUpFade { to { transform: translateY(0); opacity:1; } }
+
+.card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-title {
+  padding: 10px;
+  font-size: 1rem;
+  text-align: center;
   color: #ccc;
-  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.gear-title {
-  margin-bottom: 0;
-  margin-top: 10px;
+.load-more {
+  grid-column:1/-1;
+  text-align:center;
+  margin:15px 0;
 }
 
-.gear-logos {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 0;
+.load-more button { 
+  background:#222;
+  color:#fff;
+  border:1px solid #555;
+  padding:8px 16px;
+  cursor:pointer;
+  font-size:0.9rem;
 }
 
-.gear-logos img {
-  height: 40px;
-  max-width: 100%;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
-  transition: transform 0.2s ease;
+.load-more button:hover { background:#444; }
+
+footer {
+  background-color: #121212;
+  padding: 10px 0 15px;
+  color: #455A64;
+  text-align: center;
 }
+
+.copyright { font-size:12px;color:#fff; }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .about-image {
-    width: 200px; /* kecilkan gambar */
-  }
-
-  .about-text {
-    max-width: 80%;
-    margin-top: -5px; /* naikkan sikit lagi untuk screen kecil */
-  }
-
-  .about-text h2 {
-    font-size: 1.2rem;
-  }
-
-  .about-text p {
-    font-size: 0.8rem;
-  }
-
-  .gear-logos {
-    justify-content: center;
-  }
-
-  .gear-logos img {
-    height: 35px; /* kecilkan logo brand */
-  }
+  .copyright { font-size: 7px; }
+  header { font-size:1.5rem; padding:20px 0; }
+  .grid { grid-template-columns: repeat(2,1fr); }
+  .grid-category { font-size:1.2rem; padding:20px 0 10px; }
+  .card img { height:220px; }
+  .card-title { font-size:0.7rem; white-space:normal; text-overflow: unset; }
 }
 
-@media (max-width: 480px) {
-  .about-section {
-    padding: 30px 16px;
-  }
+@media (max-width:480px) {
+  .grid { grid-template-columns: repeat(1,1fr); }
+}
 
-  .about-image {
-    width: 160px; /* lagi kecil */
-  }
+/* About Section */
+.about-section { padding: 40px 20px; color:#fff; }
+.about-container {
+  display:flex; align-items:center; justify-content:center;
+  max-width:1000px; margin:0 auto; gap:30px; flex-wrap:wrap;
+}
+.about-image { width:270px; height:auto; border-radius:4px; object-fit:cover; border:2px solid #444; }
+.about-text { flex:1 1 300px; max-width:600px; margin-top:-10px; }
+.about-text h2 { font-size:1.2rem; margin-bottom:10px; color:#f0f0f0; }
+.about-text p { font-size:0.8rem; line-height:1.2; color:#ccc; margin-bottom:10px; }
+.gear-title { margin-bottom:0; margin-top:10px; }
+.gear-logos { display:flex; justify-content:flex-start; margin-top:0; }
+.gear-logos img { height:40px; max-width:100%; object-fit:contain; filter:brightness(0) invert(1); opacity:0.9; transition:transform 0.2s ease; }
 
-  .about-text {
-    max-width: 90%;
-    margin-top: -5px;
-  }
+@media (max-width:768px) {
+  .about-container { flex-direction:column; align-items:center; text-align:center; }
+  .about-image { width:200px; }
+  .about-text { max-width:80%; margin-top:-5px; }
+  .gear-logos { justify-content:center; }
+  .gear-logos img { height:35px; }
+}
 
-  .gear-logos img {
-    height: 30px;
-  }
+@media (max-width:480px) {
+  .about-section { padding:30px 16px; }
+  .about-image { width:160px; }
+  .about-text { max-width:90%; margin-top:-5px; }
+  .gear-logos img { height:30px; }
 }
 </style>
-
-
-<!-- CSS -->
-<style>
-/* Wrapper ikut style about-section *
-.info-section {
-  padding: 40px 20px;
-  background: transparent;
-  color: #fff;
-}
-
-.collapsible-container {
-  max-width: 900px;   /* sama macam about *
-  margin: 0 auto;      /* center *
-  display: flex;
-  flex-direction: column; /* stack atas bawah *
-  gap: 16px;
-}
-
-/* Button block *
-.collapsible-box {
-  width: 100%;
-}
-
-/* Button style *
-.collapsible {
-  background: #222;
-  color: #fff;
-  cursor: pointer;
-  padding: 12px 16px;
-  border: 1px solid #444;
-  text-align: left;
-  font-size: 0.9rem;
-  border-radius: 6px;
-  transition: background 0.3s;
-  width: 100%;   /* ikut container, bukan full page *
-}
-
-.collapsible:hover {
-  background: #333;
-}
-
-.collapsible:after {
-  content: '\25BC'; /* panah turun *
-  float: right;
-}
-
-.collapsible.active:after {
-  content: '\25B2'; /* panah naik *
-}
-
-.collapsible-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-out;
-  background: rgba(30,30,30,0.9);
-  padding: 0 14px;
-  margin-top: -4px;   /* ubah 8px -> 0 supaya rapat *
-  border: none;    /* default tiada border *
-}
-
-.collapsible.active + .collapsible-content {
-  border: 1px solid #333;   /* bila buka baru keluar border *
-  margin-top: 8px;          /* bila buka baru ada gap sikit *
-}
-
-.collapsible-content p {
-  color: #ddd;
-  font-size: 0.85rem;
-  margin: 10px 0;
-}
-
-/* Responsive ikut style about *
-@media (max-width: 768px) {
-  .info-container {
-    max-width: 80%;
-  }
-}
-
-@media (max-width: 480px) {
-  .info-container {
-    max-width: 90%;
-  }
-  .collapsible {
-    font-size: 0.8rem;
-    padding: 10px 14px;
-  }
-} */
-
-.info-section {
-  padding: 40px 20px;
-  background: transparent;
-  color: #fff;
-}
-
-.collapsible-container {
-  max-width: 900px;   /* sama macam about */
-  margin: 0 auto;      /* center */
-  display: flex;
-  flex-direction: column; /* stack atas bawah */
-  gap: 12px;             /* rapatkan sikit */
-}
-
-/* Button block */
-.collapsible-box {
-  width: 100%;
-}
-
-/* Button style */
-.collapsible {
-  background: #222;
-  color: #fff;
-  cursor: pointer;
-  padding: 10px 14px;   /* kecilkan padding */
-  border: 1px solid #444;
-  text-align: left;
-  font-size: 0.8rem;    /* kecilkan font button */
-  border-radius: 6px;
-  transition: background 0.3s;
-  width: 100%;   /* ikut container, bukan full page */
-}
-
-.collapsible:hover {
-  background: #333;
-}
-
-.collapsible:after {
-  content: '\25BC'; /* panah turun */
-  float: right;
-}
-
-.collapsible.active:after {
-  content: '\25B2'; /* panah naik */
-}
-
-/* Collapsible content */
-.collapsible-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-out;
-  background: rgba(30,30,30,0.9);
-  padding: 0 14px;
-  margin-top: -4px;   /* rapatkan button & content bila tutup */
-  border: none;        /* tiada border bila tutup */
-}
-
-.collapsible.active + .collapsible-content {
-  border: 1px solid #333;   /* keluar border bila buka */
-  margin-top: 8px;           /* gap sikit bila buka */
-}
-
-/* Text inside content */
-.collapsible-content h3 {
-  font-size: 0.75rem;   /* heading kecil */
-  margin: 10px 0 6px 0;
-  color: #ddd;
-}
-
-.collapsible-content p,
-.collapsible-content ul {
-  color: #ddd;
-  font-size: 0.75rem;   /* font isi kecil */
-  line-height: 1.3;
-  margin: 6px 0;
-}
-
-.collapsible-content ul {
-  padding-left: 18px;   /* rapatkan bullet */
-}
-
-/* Responsive ikut style about */
-@media (max-width: 768px) {
-  .collapsible-container {
-    max-width: 80%;
-  }
-}
-
-@media (max-width: 480px) {
-  .collapsible-container {
-    max-width: 90%;
-  }
-  .collapsible {
-    font-size: 0.7rem;   /* button lebih kecil */
-    padding: 8px 12px;
-  }
-  .collapsible-content h3,
-  .collapsible-content p,
-  .collapsible-content ul {
-    font-size: 0.7rem;   /* isi content lebih kecil */
-    line-height: 1.25;
-  }
-}
-
-
-</style>
-	
 </head>
 <body>
-  <div class="bg-overlay"></div>
-  <header>Fyrus Photography</header> 
-  <div style="text-align:right;margin-top:5px;padding:0 10px;">
-    <a href="https://wsfyrus.pages.dev" target="_blank" style="color:#25D366;font-size:0.8rem;text-decoration:none;">
+<div class="bg-overlay"></div>
+
+<div class="container-wrapper">
+  <header>Fyrus Photography</header>
+  <div class="top-book">
+    <a href="https://wsfyrus.pages.dev" target="_blank">
       <i class="bi bi-whatsapp"></i> Book Now
     </a>
   </div>
@@ -501,99 +198,36 @@
     <div class="grid" id="gallery-grid"></div>
   </main>
 
-  <div style="text-align:left;margin-bottom:20px;padding:0 10px;">
-    <a href="https://wsfyrus.pages.dev" target="_blank" style="color:#25D366;font-size:0.8rem;text-decoration:none;">
+  <div class="top-book" style="text-align:left; margin-top:10px;">
+    <a href="https://wsfyrus.pages.dev" target="_blank">
       <i class="bi bi-whatsapp"></i> Book Now
     </a>
   </div>
+</div>
 
-  <script>
-    const galleries = [
-      {
-        category:"Wedding",
-        items:[
-          {
-			  title:"Iddin & Farah",url:"https://fyrus.pages.dev/wedding/iddinfarah",
-			  thumb:"https://drive.google.com/thumbnail?id=17kYjkFViMU2NF7vsybakVFGkFmq-k9Jm&sz=w1500"
-		  },
-          {
-			  title:"Hafizan & Azlin",url:"https://fyrus.pages.dev/wedding/hafizanazlin",
-			  thumb:"https://drive.google.com/thumbnail?id=12q3Rz87lcxRztwzplY-AheZZ120VQBhO&sz=w1500"
-		  },
-          {
-			  title:"Faris & Zira",url:"https://fyrus.pages.dev/wedding/fariszira",
-			  thumb:"https://drive.google.com/thumbnail?id=1BaCGnQiQk3b7J4yv-GUUJZbUIr83Brth&sz=w1500"
-		  },
-          {
-			  title:"Umar & Erin",url:"https://fyrus.pages.dev/wedding/umarerin",
-			  thumb:"https://drive.google.com/thumbnail?id=1KrSgLeP3i8IFc34Ar3QMEWJQFCfr5roc&sz=w1500"
-		  },
-          {
-			  title:"Mizan & Mira",url:"https://fyrus.pages.dev/wedding/mizanmira",
-			  thumb:"https://drive.google.com/thumbnail?id=1WDYpiwz4xTXm6Q0KFO323LH3ANXKhAxm&sz=w1500"
-		  },
-          {
-			  title:"Man & Yatt",url:"https://fyrus.pages.dev/wedding/manyatt",
-			  thumb:"https://drive.google.com/thumbnail?id=1u8pWbyTap0bHCaKPdpM7QyA74L33fanV&sz=w1500"
-		  }
-        ]
-      },
-      {
-        category:"Portrait",
-        items:[
-          {
-			  title:"Samira",url:"https://fyrus.pages.dev/portrait/samira",
-			  thumb:"https://drive.google.com/thumbnail?id=1N-gVqltJ6TZV-UOGjdPe6WCw-oKQoiZn&sz=w1500"
-		  },
-          {
-			  title:"Amalia Irdina",url:"https://fyrus.pages.dev/portrait/amaliairdina",
-			  thumb:"https://drive.google.com/thumbnail?id=1nJrykU15eoV-ZlTvN8-Q9EEdcSnpwZuG&sz=w1500"
-		  },
-          {
-			  title:"Emilie & Rahman",url:"https://fyrus.pages.dev/portrait/emilierahman",
-			  thumb:"https://drive.google.com/thumbnail?id=1ndu1Z2LNWP3MVbgQPsF5YjN947I1URqP&sz=w1500"
-		  },
-          {
-			  title:"Iman Dalily",url:"https://fyrus.pages.dev/portrait/imandalily",
-			  thumb:"https://drive.google.com/thumbnail?id=1s6A-qKf3j6SlkgxIQIdMOt6O6euqWTVj&sz=w1500"
-		  },
-          {
-			  title:"Alia",url:"https://fyrus.pages.dev/portrait/alia",
-			  thumb:"https://drive.google.com/thumbnail?id=1LPeu03kr24DNiTrvIFiB8o8O1_BS4c3k&sz=w1500"
-		  },
-          {
-			  title:"Syafika",url:"https://fyrus.pages.dev/portrait/syafika",
-			  thumb:"https://drive.google.com/thumbnail?id=1zbRd8aoqyRqMCNviHVyc6Zyb29RhEDYq&sz=w1500"
-		  },
-          {
-			  title:"Alin & Amni",url:"https://fyrus.pages.dev/portrait/alinamni",
-			  thumb:"https://drive.google.com/thumbnail?id=1pkI5wy8w393NostsNVHeIg0Ii-mToEBB&sz=w1500"
-		  },
-          {
-			  title:"Durra",url:"https://fyrus.pages.dev/portrait/durrasalleh",
-			  thumb:"https://drive.google.com/thumbnail?id=1vgd7aF63CWSFI6NcF19y5iqbXcjPMDBv&sz=w1500"
-		  },
-          {
-			  title:"Kila & Ijoi",url:"https://iamfyrus.com/portrait/kilaijoi",
-			  thumb:"https://drive.google.com/thumbnail?id=1qKsq3VwzVXQxFfVbL_pc6qTviqZA_WSW&sz=w1500"
-		  },
-          {
-			  title:"Bridal",url:"https://fyrus.pages.dev/portrait/bridal",
-			  thumb:"https://drive.google.com/thumbnail?id=1JznL9RXEwWb9U-RO6h7lalD85jqrjCwz&sz=w1500"
-		  },
-          {
-			  title:"Tasik Cempaka",url:"https://fyrus.pages.dev/portrait/outing",
-			  thumb:"https://drive.google.com/thumbnail?id=1VpoNmTVmgrCKdm6V1Zkvql8IKYyoxZH9&sz=w1500"
-		  }
-        ]
-      }
-    ];
+<!-- JS Galleries -->
+<script>
+const galleries=[
+  {category:"Wedding", items:[
+    {title:"Iddin & Farah", url:"https://fyrus.pages.dev/wedding/iddinfarah", thumb:"https://drive.google.com/thumbnail?id=17kYjkFViMU2NF7vsybakVFGkFmq-k9Jm&sz=w1500"},
+    {title:"Hafizan & Azlin", url:"https://fyrus.pages.dev/wedding/hafizanazlin", thumb:"https://drive.google.com/thumbnail?id=12q3Rz87lcxRztwzplY-AheZZ120VQBhO&sz=w1500"},
+    {title:"Faris & Zira", url:"https://fyrus.pages.dev/wedding/fariszira", thumb:"https://drive.google.com/thumbnail?id=1BaCGnQiQk3b7J4yv-GUUJZbUIr83Brth&sz=w1500"},
+    {title:"Umar & Erin", url:"https://fyrus.pages.dev/wedding/umarerin", thumb:"https://drive.google.com/thumbnail?id=1KrSgLeP3i8IFc34Ar3QMEWJQFCfr5roc&sz=w1500"},
+    {title:"Mizan & Mira", url:"https://fyrus.pages.dev/wedding/mizanmira", thumb:"https://drive.google.com/thumbnail?id=1WDYpiwz4xTXm6Q0KFO323LH3ANXKhAxm&sz=w1500"},
+    {title:"Man & Yatt", url:"https://fyrus.pages.dev/wedding/manyatt", thumb:"https://drive.google.com/thumbnail?id=1u8pWbyTap0bHCaKPdpM7QyA74L33fanV&sz=w1500"}
+  ]},
+  {category:"Portrait", items:[
+    {title:"Samira", url:"https://fyrus.pages.dev/portrait/samira", thumb:"https://drive.google.com/thumbnail?id=1N-gVqltJ6TZV-UOGjdPe6WCw-oKQoiZn&sz=w1500"},
+    {title:"Amalia Irdina", url:"https://fyrus.pages.dev/portrait/amaliairdina", thumb:"https://drive.google.com/thumbnail?id=1nJrykU15eoV-ZlTvN8-Q9EEdcSnpwZuG&sz=w1500"},
+    {title:"Emilie & Rahman", url:"https://fyrus.pages.dev/portrait/emilierahman", thumb:"https://drive.google.com/thumbnail?id=1ndu1Z2LNWP3MVbgQPsF5YjN947I1URqP&sz=w1500"}
+  ]}
+];
 
-    const container=document.getElementById("gallery-grid");
-    function createCards(){
+const container=document.getElementById("gallery-grid");
+function createCards(){
   container.innerHTML="";
   let delayCounter=0;
-  galleries.forEach((group)=>{
+  galleries.forEach(group=>{
     const heading=document.createElement("div");
     heading.className="grid-category";
     heading.textContent=group.category;
@@ -602,75 +236,69 @@
     group.items.forEach((item,i)=>{
       const card=document.createElement("div");
       card.className="card";
-      card.dataset.category = group.category; // 🔑 simpan kategori
+      card.dataset.category=group.category;
       card.style.animationDelay=`${delayCounter*0.1}s`;
       delayCounter++;
       card.onclick=()=>window.location.href=item.url;
-      card.innerHTML=`<img src="${item.thumb}" alt="${item.title}" /><div class="card-title">${item.title}</div>`;
-      if(i>=6) card.style.display="none"; // hide extra
+      card.innerHTML=`<img src="${item.thumb}" alt="${item.title}"><div class="card-title">${item.title}</div>`;
+      if(i>=6) card.style.display="none";
       container.appendChild(card);
     });
 
-    if(group.items.length > 6){
-  const loadMoreDiv = document.createElement("div");
-  loadMoreDiv.className = "load-more";
-  const btn = document.createElement("button");
-  btn.textContent = "Load More";
-  btn.onclick = () => {
-  const cards = [...container.querySelectorAll(`.card[data-category="${group.category}"]`)];
-  const hidden = cards.filter(c => getComputedStyle(c).display === "none").slice(0, 6);
-  hidden.forEach(c => c.style.display = "block");
-
-  // kalau semua dah keluar → hide button
-  if (cards.every(c => getComputedStyle(c).display !== "none")) {
-    btn.style.display = "none";
-  }
-};
-  loadMoreDiv.appendChild(btn);
-  container.appendChild(loadMoreDiv);
-}
+    if(group.items.length>6){
+      const loadMoreDiv=document.createElement("div");
+      loadMoreDiv.className="load-more";
+      const btn=document.createElement("button");
+      btn.textContent="Load More";
+      btn.onclick=()=>{
+        const cards=[...container.querySelectorAll(`.card[data-category="${group.category}"]`)];
+        const hidden=cards.filter(c=>getComputedStyle(c).display==="none").slice(0,6);
+        hidden.forEach(c=>c.style.display="block");
+        if(cards.every(c=>getComputedStyle(c).display!=="none")) btn.style.display="none";
+      };
+      loadMoreDiv.appendChild(btn);
+      container.appendChild(loadMoreDiv);
+    }
   });
 }
 
+function updateGridCols(){
+  const width=window.innerWidth;
+  let cols=5;
+  if(width<850) cols=2;
+  else if(width<1050) cols=3;
+  else if(width<1550) cols=4;
+  container.style.gridTemplateColumns=`repeat(${cols},1fr)`;
+}
 
-    function updateGridCols(){
-      const width=window.innerWidth;
-      let cols=5;
-      if(width<850){cols=2;}
-      else if(width<1050){cols=3;}
-      else if(width<1550){cols=4;}
-      container.style.gridTemplateColumns=`repeat(${cols},1fr)`;
-    }
-    window.addEventListener("resize",updateGridCols);
-    window.addEventListener("DOMContentLoaded",()=>{
-      createCards();updateGridCols();
-      document.getElementById("year").textContent=new Date().getFullYear();
-    });
-  </script>
+window.addEventListener("resize",updateGridCols);
+window.addEventListener("DOMContentLoaded",()=>{
+  createCards();
+  updateGridCols();
+  document.getElementById("year").textContent=new Date().getFullYear();
+});
+</script>
 
-  <section class="about-section">
-	  <div class="grid-category" style="margin-bottom:20px;">About</div>
-    <div class="about-container">
-      <img src="https://raw.githubusercontent.com/fyrus7/portfolio/heads/main/media/photog.jpg" alt="Photographer" class="about-image" />
-      <div class="about-text">
-        <h2>the Photographer</h2>
-        <p>Hi, I'm Fyrus – a passionate wedding and portrait photographer dedicated to capturing your timeless moments. I believe in authentic emotion and storytelling through every shot.</p>
-        <p>Available for bookings around Klang Valley (and some Outstation area's). Let's create something beautiful.</p>
-        <br>
-        <p class="gear-title"><b>GEAR</b></p>
-        <div class="gear-logos">
-          <img src="https://raw.githubusercontent.com/fyrus7/portfolio/heads/main/media/brands.png" alt="Brands" />
-        </div>
+<!-- About Section -->
+<section class="about-section">
+  <div class="grid-category" style="margin-bottom:20px;">About</div>
+  <div class="about-container">
+    <img src="https://raw.githubusercontent.com/fyrus7/portfolio/heads/main/media/photog.jpg" alt="Photographer" class="about-image"/>
+    <div class="about-text">
+      <h2>the Photographer</h2>
+      <p>Hi, I'm Fyrus – a passionate wedding and portrait photographer dedicated to capturing your timeless moments. I believe in authentic emotion and storytelling through every shot.</p>
+      <p>Available for bookings around Klang Valley (and some Outstation area's). Let's create something beautiful.</p>
+      <p class="gear-title"><b>GEAR</b></p>
+      <div class="gear-logos">
+        <img src="https://raw.githubusercontent.com/fyrus7/portfolio/heads/main/media/brands.png" alt="Brands"/>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-
-<!-- Terms & Copyright Section -->
+<!-- Terms & Copyright -->
 <section class="info-section">
   <div class="collapsible-container">
-    
-    <!-- Terma & Syarat -->
     <div class="collapsible-box">
       <button class="collapsible">Terms and Conditions</button>
       <div class="collapsible-content">
@@ -679,112 +307,55 @@
           <li>Booking is only confirmed upon deposit payment.</li>
           <li>The deposit is <strong>RM300 OR 50%</strong> of the package price (whichever is higher).</li>
           <li>Deposit is <strong>non-refundable</strong> if the booking is cancelled.</li>
-          <li>Balance must be settled <strong>at least one week before the event</strong> or <strong>on the event day</strong>.</li>
-          <li>Failure to settle may result in service postponement or cancellation without refund.</li>
         </ul>
-        <hr style="margin:20px 0; border:0; border-top:1px solid #444;">
+        <hr style="margin:20px 0;border:0;border-top:1px solid #444;">
         <h3>Bahasa Melayu</h3>
         <ul>
           <li>Tempahan hanya disahkan selepas bayaran deposit dibuat.</li>
           <li>Deposit ialah <strong>RM300 ATAU 50%</strong> daripada jumlah penuh (mana yang lebih tinggi).</li>
           <li>Deposit adalah <strong>tidak boleh dipulangkan</strong> jika tempahan dibatalkan.</li>
-          <li>Baki pembayaran mesti dijelaskan <strong>seminggu sebelum majlis/event</strong> atau selewat-lewatnya <strong>pada hari majlis/event</strong>.</li>
-          <li>Kegagalan bayar baki boleh menyebabkan servis fotografi ditangguh atau dibatalkan tanpa tuntutan balik.</li>
         </ul>
       </div>
     </div>
-
-    <!-- Hakcipta / Copyright -->
-    <div class="collapsible-box">
-      <button class="collapsible">Copyright</button>
-      <div class="collapsible-content">
-        <h3>English</h3>
-        <p>
-          All photographs on this website are original works of the photographer and are protected under the 
-          <strong>Copyright Act 1987 (Malaysia)</strong>.
-        </p>
-        <p>
-          Unless there is a <strong>written agreement transferring ownership</strong>, all images remain the 
-          <strong>exclusive property of the photographer</strong>. Payment does not automatically transfer copyright.
-        </p>
-        <ul>
-          <li>Downloading, copying, printing, or distributing without permission is prohibited.</li>
-          <li>Altering, editing, or reusing without written consent is not allowed.</li>
-          <li>Commercial or publishing use requires official approval.</li>
-        </ul>
-        <hr style="margin:20px 0; border:0; border-top:1px solid #444;">
-        <h3>Bahasa Melayu</h3>
-        <p>
-          Semua foto dalam laman web ini adalah hasil karya asal jurugambar dan dilindungi di bawah 
-          <strong>Akta Hakcipta 1987 (Malaysia)</strong>.
-        </p>
-        <p>
-          Melainkan terdapat <strong>perjanjian bertulis mengenai pindah hak milik</strong>, semua gambar adalah 
-          <strong>hak milik mutlak jurugambar</strong>. Pembayaran tidak secara automatik memindahkan hak cipta kepada klien.
-        </p>
-        <ul>
-          <li>Dilarang memuat turun, menyalin, mencetak atau mengedar tanpa kebenaran.</li>
-          <li>Dilarang mengubahsuai, mengedit atau menggunakan semula tanpa persetujuan bertulis.</li>
-          <li>Penggunaan komersial / penerbitan memerlukan kebenaran rasmi.</li>
-        </ul>
-      </div>
-    </div>
-
   </div>
 </section>
 
-
-<!-- JS -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const coll = document.querySelectorAll(".collapsible");
-
-  coll.forEach(btn => {
-    btn.addEventListener("click", function() {
-      // tutup semua dulu
-      coll.forEach(b => {
-        if (b !== this) {
-          b.classList.remove("active");
-          b.nextElementSibling.style.maxHeight = null;
-        }
-      });
-
-      // toggle current
+  const coll=document.querySelectorAll(".collapsible");
+  coll.forEach(btn=>{
+    btn.addEventListener("click", function(){
+      coll.forEach(b=>{if(b!==this){b.classList.remove("active");b.nextElementSibling.style.maxHeight=null;}});
       this.classList.toggle("active");
-      const content = this.nextElementSibling;
-      if (this.classList.contains("active")) {
-        content.style.maxHeight = content.scrollHeight + "px";
-      } else {
-        content.style.maxHeight = null;
-      }
+      const content=this.nextElementSibling;
+      if(this.classList.contains("active")) content.style.maxHeight=content.scrollHeight+"px";
+      else content.style.maxHeight=null;
     });
   });
 });
 </script>
-	
 
 <footer>
-    <div style="text-align: center; margin-top: 10px;">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://fyrus.pages.dev" target="_blank" style="margin: 0 15px; text-decoration: none;">
-        <i class="bi bi-facebook" style="font-size: 25px; color: #3b5998;"></i>
-      </a>
-      <a href="https://www.instagram.com/sharer.php?u=https://fyrus.pages.dev" target="_blank" style="margin: 0 15px; text-decoration: none;">
-        <i class="bi bi-instagram" style="font-size: 25px; color: #E1306C;"></i>
-      </a>
-      <a href="https://telegram.me/share/url?url=https://fyrus.pages.dev" target="_blank" style="margin: 0 15px; text-decoration: none;">
-        <i class="bi bi-telegram" style="font-size: 25px; color: #24A1DE;"></i>
-      </a>
-      <a href="https://x.com/intent/tweet?url=https://fyrus.pages.dev&text=Check This Photographer Portfolio" target="_blank" style="margin: 0 15px; text-decoration: none;">
-        <i class="bi bi-twitter-x" style="font-size: 25px; color: #FFFFFF;"></i>
-      </a>
-      <a href="https://wa.me/?text=Check%20out%20this%20photographer%20portfolio:%20https://fyrus.pages.dev" target="_blank" style="margin: 0 15px;">
-        <i class="bi bi-whatsapp" style="font-size: 25px; color: #25D366;"></i>
-      </a>
-    </div>
-    <div style="margin-top: 10px;"></div>
-    <div class="copyright">
-      &copy; <span id="year"></span> Fyrus Photography. All rights reserved.
-    </div>
-  </footer>
+  <div style="text-align:center;margin-top:10px;">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://fyrus.pages.dev" target="_blank" style="margin:0 15px;text-decoration:none;">
+      <i class="bi bi-facebook" style="font-size:25px;color:#3b5998;"></i>
+    </a>
+    <a href="https://www.instagram.com/sharer.php?u=https://fyrus.pages.dev" target="_blank" style="margin:0 15px;text-decoration:none;">
+      <i class="bi bi-instagram" style="font-size:25px;color:#E1306C;"></i>
+    </a>
+    <a href="https://telegram.me/share/url?url=https://fyrus.pages.dev" target="_blank" style="margin:0 15px;text-decoration:none;">
+      <i class="bi bi-telegram" style="font-size:25px;color:#24A1DE;"></i>
+    </a>
+    <a href="https://x.com/intent/tweet?url=https://fyrus.pages.dev&text=Check This Photographer Portfolio" target="_blank" style="margin:0 15px;text-decoration:none;">
+      <i class="bi bi-twitter-x" style="font-size:25px;color:#FFFFFF;"></i>
+    </a>
+    <a href="https://wa.me/?text=Check%20out%20this%20photographer%20portfolio:%20https://fyrus.pages.dev" target="_blank" style="margin:0 15px;">
+      <i class="bi bi-whatsapp" style="font-size:25px;color:#25D366;"></i>
+    </a>
+  </div>
+  <div class="copyright">
+    &copy; <span id="year"></span> Fyrus Photography. All rights reserved.
+  </div>
+</footer>
 </body>
 </html>
